@@ -9,6 +9,10 @@ const KEY = "FHxgrSiomlCFSTnZTAvi-jnzcep6MYVa5dfJim2GjSo"; // clé api
       const res = await fetch(url);
       const data = await res.json();
       gallery.innerHTML="";
+      if (data.results.length === 0) {
+        gallery.innerHTML = "<div>Aucun résultat trouvé pour cette recherche.</div>";
+        return;
+      }
       data.results.forEach(photo=>{
         const img=document.createElement("img");
         img.src=photo.urls.small;
@@ -24,3 +28,17 @@ const KEY = "FHxgrSiomlCFSTnZTAvi-jnzcep6MYVa5dfJim2GjSo"; // clé api
     };
 
     modal.onclick=()=>{ modal.style.display="none"; };
+
+//Sélection des boutons de suggestion (ceux qui ont un data-tag)
+const suggestionButtons = document.querySelectorAll('.suggestions button');
+suggestionButtons.forEach(button => {
+  button.onclick = () => {
+    // Récupère le mot-clé depuis l'attribut data-tag
+    const q = button.getAttribute('data-tag');        
+    // Met à jour le champ de recherche (optionnel)
+    searchInput.value = q; 
+    if(q) {
+      loadImages(q);
+    }
+  };
+});

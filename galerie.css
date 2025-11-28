@@ -1,20 +1,35 @@
-body { font-family: sans-serif; margin:0; padding:0; padding-top:60px; }
+body { 
+    font-family: sans-serif; 
+    margin:0; 
+    padding:0; 
+    padding-top:60px;
+    background: linear-gradient(to bottom, #060656, #ffffff);
+    min-height: 100vh;
+ }
 .titre {
 position: fixed;   /* reste fixé à l’écran */
 top: 0;            /* collé en haut */
 left: 0;
 width: 100%;       /* occupe toute la largeur */
 margin: 0;
-padding: 10px;
-background: white; /* fond pour qu’il reste lisible */
+padding: 20px;
+background: rgb(13, 4, 62); 
+color: white;
 text-align: center;
 font-size: 1.5em;
 z-index: 1000;     /* au-dessus des autres éléments */
 border-bottom: 1px solid #ccc;
 }
 header { padding:1em; text-align:center; }
-input { padding:0.5em; width:60%; max-width:300px; }
-button { padding:0.5em; }
+input { 
+    padding:0.5em;
+    width:60%; 
+    max-width:300px;
+    background-color:rgb(239, 205, 163);
+ }
+button { 
+    padding:0.5em; 
+    background-color:burlywood; }
 .gallery {
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
@@ -31,3 +46,10 @@ position:fixed; inset:0; background:rgba(0,0,0,0.8);
 display:none; justify-content:center; align-items:center;
 }
 .modal img { max-width:90%; max-height:90%; }
+
+.suggestions {
+    display: flex;
+    justify-content: center; 
+    gap: 10px;
+    padding: 10px 0;
+}
